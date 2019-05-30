@@ -86,9 +86,17 @@ class Snake {
   }
 
   show() {
-    fill(255);
-    for (let i = 0; i < this.tail.length; i++)
-      rect(this.tail[i].x, this.tail[i].y, scl, scl);
-    rect(this.x, this.y, scl, scl);
+    for (let i = 0; i < this.tail.length; i++) {
+      fill(77, 17, 10 * i);
+
+      let c = (i + 1) / this.tail.length;
+      if (c < 0.3)
+        c = 0.3;
+      let scale = scl * c;
+      arc(this.tail[i].x + scl / 2, this.tail[i].y + scl / 2, scale, scale, 0, Math.PI * 2);
+    }
+    fill(77, 17, 92);
+    arc(this.x + scl / 2 + 1, this.y + scl / 2 + 1, scl, scl, 0, Math.PI * 2);
+
   }
 }
